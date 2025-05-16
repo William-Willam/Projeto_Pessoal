@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfólio - William dos Santos Rodrigues</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px 15px 50px 15px;
+      }
+
+      header {
+        text-align: center;
+        padding: 40px 15px 30px 15px;
+        background-color: #1e88e5;
+        color: #fff;
+        border-radius: 0 0 40px 40px;
+        box-shadow: 0 8px 15px rgba(30, 136, 229, 0.3);
+        position: relative;
+      }
+
+      header img {
+        width: 130px;
+        height: 130px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+      }
+      header img:hover {
+        transform: scale(1.05);
+      }
+
+      header h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        margin-bottom: 6px;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+      }
+
+      header p.subtitle {
+        font-weight: 500;
+        font-size: 1.3rem;
+        opacity: 0.8;
+      }
+
+      section {
+        margin-top: 40px;
+        background: #fff;
+        border-radius: 18px;
+        padding: 30px 25px 35px 25px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+        transition: box-shadow 0.3s ease;
+      }
+      section:hover {
+        box-shadow: 0 8px 30px rgba(30, 136, 229, 0.2);
+      }
+
+      section h2 {
+        color: #1e88e5;
+        font-weight: 700;
+        margin-bottom: 25px;
+        font-size: 1.9rem;
+        position: relative;
+      }
+
+      section h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 70px;
+        height: 4px;
+        background: #1e88e5;
+        border-radius: 20px;
+      }
+
+      .about p {
+        font-size: 1.15rem;
+        letter-spacing: 0.02em;
+        color: #555;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      .experience-item,
+      .project-item {
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .experience-item:last-child,
+      .project-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .job-title {
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: #222;
+      }
+
+      .company-name {
+        font-weight: 500;
+        color: #555;
+        font-style: italic;
+        margin-left: 8px;
+      }
+
+      .job-dates {
+        font-size: 0.9rem;
+        color: #888;
+        margin-top: 3px;
+        font-style: normal;
+      }
+
+      .job-description {
+        margin-top: 8px;
+        color: #444;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        justify-content: center;
+      }
+
+      .skill-item {
+        background: #1e88e5;
+        color: #fff;
+        padding: 9px 15px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        box-shadow: 0 4px 12px rgba(30, 136, 229, 0.4);
+        transition: background 0.3s ease;
+        cursor: default;
+        user-select: none;
+      }
+
+      .skill-item:hover {
+        background: #1565c0;
+      }
+
+      .projects-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+
+      .project-item {
+        background: #f9fafe;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px rgba(30, 136, 229, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+
+      .project-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 38px rgba(30, 136, 229, 0.3);
+      }
+
+      .project-image {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        display: block;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .project-details {
+        padding: 15px 12px;
+      }
+
+      .project-title {
+        font-weight: 600;
+        font-size: 1.15rem;
+        margin-bottom: 6px;
+        color: #1e88e5;
+        user-select: none;
+      }
+
+      .project-description {
+        font-size: 0.95rem;
+        color: #444;
+        line-height: 1.4;
+        user-select: none;
+      }
+
+      .project-link {
+        display: inline-block;
+        margin-top: 11px;
+        text-decoration: none;
+        font-weight: 600;
+        color: #1e88e5;
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.3s ease;
+      }
+
+      .project-link:hover {
+        border-color: #1565c0;
+      }
+
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .contact-form label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #1e88e5;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 12px 14px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        border: 1.8px solid #ddd;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+        font-family: inherit;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        outline: none;
+        border-color: #1e88e5;
+        box-shadow: 0 0 10px rgba(30, 136, 229, 0.3);
+      }
+
+      .contact-form button {
+        background: #1e88e5;
+        color: white;
+        font-weight: 700;
+        padding: 14px 25px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        box-shadow: 0 6px 20px rgba(30, 136, 229, 0.35);
+        transition: background 0.3s ease;
+        user-select: none;
+      }
+
+      .contact-form button:hover {
+        background: #1565c0;
+      }
+
+      .social-links {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .social-links a {
+        margin: 0 15px;
+        color: #1e88e5;
+        font-size: 1.8rem;
+        transition: color 0.3s ease;
+        text-decoration: none;
+      }
+      .social-links a:hover {
+        color: #1565c0;
+      }
+
+      footer {
+        margin-top: auto;
+        background: #1e88e5;
+        padding: 20px 15px;
+        color: #eee;
+        text-align: center;
+        font-size: 0.95rem;
+        font-weight: 500;
+        user-select: none;
+      }
+
+      @media (max-width: 600px) {
+        header h1 {
+          font-size: 2.2rem;
+        }
+
+        section {
+          padding: 25px 15px 30px 15px;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="https://i.pravatar.cc/130" alt="Foto do Seu Nome" />
+      <h1>William dos Santos Rodrigues</h1>
+      <p class="subtitle">
+        Desenvolvedor Full Stack | Desenvolvedor Junior
+      </p>
+    </header>
+
+    <div class="container">
+      <section class="about" id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>
+          Sou um desenvolvedor full-Stack  apaixonado por criar experiências
+          digitais elegantes e funcionais. Tenho 1 ano de experiência em
+          transformar ideias em aplicações web modernas utilizando tecnologias
+          como HTML5, CSS3, JavaScript, Node.js e Java. Busco sempre
+          aprender e entregar excelência.
+        </p>
+      </section>
+
+      <section class="experience" id="experiencia">
+        <h2>Experiência</h2>
+        <div class="experience-item">
+          <div class="job-title">Desenvolvedor Front-end</div>
+          <span class="company-name">Tech Solutions Ltda.</span>
+          <div class="job-dates">Jan 2021 - Atual</div>
+          <p class="job-description">
+            Desenvolvimento de interfaces responsivas e acessíveis para
+            plataformas SaaS, melhoria contínua da experiência do usuário e
+            colaboração com equipes de design e backend para garantir a
+            integração perfeita.
+          </p>
+        </div>
+        <div class="experience-item">
+          <div class="job-title">Estagiário em UX/UI</div>
+          <span class="company-name">Creative Agency</span>
+          <div class="job-dates">Jul 2019 - Dez 2020</div>
+          <p class="job-description">
+            Auxílio no processo de criação de wireframes, protótipos e testes de
+            usabilidade para projetos mobile e web, com foco em otimizar a
+            interação do usuário final.
+          </p>
+        </div>
+      </section>
+
+      <section class="skills" id="habilidades">
+        <h2>Habilidades</h2>
+        <div
+          class="skills-list"
+          aria-label="Lista de habilidades profissionais"
+        >
+          <div class="skill-item" title="HTML5">HTML5</div>
+          <div class="skill-item" title="CSS3">CSS3</div>
+          <div class="skill-item" title="JavaScript">JavaScript</div>
+          <div class="skill-item" title="React">React</div>
+          <div class="skill-item" title="Vue.js">Vue.js</div>
+          <div class="skill-item" title="Git">Git</div>
+          <div class="skill-item" title="Figma">Figma</div>
+          <div class="skill-item" title="UX Design">UX Design</div>
+          <div class="skill-item" title="Responsive Design">
+            Responsive Design
+          </div>
+        </div>
+      </section>
+
+      <section class="projects" id="projetos">
+        <h2>Projetos</h2>
+        <div class="projects-grid">
+          <div
+            class="project-item"
+            tabindex="0"
+            aria-label="Projeto Portfolio Pessoal"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+              alt="Imagem do projeto Portfólio Pessoal"
+              class="project-image"
+            />
+            <div class="project-details">
+              <div class="project-title">Portfólio Pessoal</div>
+              <div class="project-description">
+                Site responsivo para mostrar minhas habilidades, experiência e
+                projetos.
+              </div>
+              <a
+                href="https://seuportfolio.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                aria-label="Abrir projeto Portfólio Pessoal em nova aba"
+              >
+                Visitar
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="project-item"
+            tabindex="0"
+            aria-label="Projeto Loja Online"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1513282048021-133b4f29f2b9?auto=format&fit=crop&w=600&q=80"
+              alt="Imagem do projeto Loja Online"
+              class="project-image"
+            />
+            <div class="project-details">
+              <div class="project-title">Loja Online</div>
+              <div class="project-description">
+                Plataforma de e-commerce construída com React e integração com
+                API de pagamentos.
+              </div>
+              <a
+                href="https://lojaonline.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                aria-label="Abrir projeto Loja Online em nova aba"
+              >
+                Visitar
+              </a>
+            </div>
+          </div>
+
+          <div class="project-item" tabindex="0" aria-label="Projeto Blog Tech">
+            <img
+              src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=600&q=80"
+              alt="Imagem do projeto Blog Tech"
+              class="project-image"
+            />
+            <div class="project-details">
+              <div class="project-title">Blog Tech</div>
+              <div class="project-description">
+                Blog de tecnologia desenvolvido em Vue.js com foco em
+                performance e SEO.
+              </div>
+              <a
+                href="https://blogtech.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+                aria-label="Abrir projeto Blog Tech em nova aba"
+              >
+                Visitar
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contato">
+        <h2>Contato</h2>
+        <form
+          class="contact-form"
+          aria-label="Formulário de contato"
+          onsubmit="return enviarFormulario(event);"
+        >
+          <label for="name">Nome</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Seu nome completo"
+            required
+          />
+
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="seu@email.com"
+            required
+          />
+
+          <label for="message">Mensagem</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Escreva sua mensagem aqui..."
+            required
+          ></textarea>
+
+          <button type="submit">Enviar Mensagem</button>
+        </form>
+        <div class="social-links" aria-label="Links para redes sociais">
+          <a
+            href="https://linkedin.com/in/seunome"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn de Seu Nome"
+            title="LinkedIn"
+          >
+            &#128100;
+          </a>
+          <a
+            href="https://github.com/seunome"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub de Seu Nome"
+            title="GitHub"
+          >
+            &#128187;
+          </a>
+          <a
+            href="mailto:seu@email.com"
+            aria-label="Enviar email para Seu Nome"
+            title="Email"
+          >
+            &#9993;
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <footer>&copy; 2025 William dos Santos Rodrigues - Portfólio Profissional</footer>
+
+    <script>
+      function enviarFormulario(event) {
+        event.preventDefault();
+        const nome = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const mensagem = document.getElementById("message").value.trim();
+
+        if (nome === "" || email === "" || mensagem === "") {
+          alert("Por favor, preencha todos os campos antes de enviar.");
+          return false;
+        }
+
+        // Aqui poderia ser adicionado um envio via API ou email, mas para demonstração só exibe uma mensagem.
+        alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso.`);
+        event.target.reset();
+        return true;
+      }
+    </script>
+  </body>
+</html>
